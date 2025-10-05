@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        p {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        #topic-input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        #generate-btn {
+            padding: 12px 20px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        #generate-btn:hover {
+            background-color: #2980b9;
+        }
+        #result-container {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+        #ai-message {
+            color: #34495e;
+            margin: 0;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>    
+</head>
+<body>
+    <div class="container">
+        <h1>Creative AI Text Generator</h1>
+        <p>Enter a topic below and let the AI write a creative sentence for you.</p>
+        <div class="input-group">
+            <input type="text" id="topic-input" placeholder="e.g., space exploration">
+            <button id="generate-btn">Generate</button>
+        </div>
+        <div id="result-container">
+            <p id="ai-message">Your AI-generated message will appear here...</p>
+        </div>
+        <div id="loading-spinner" class="hidden"></div>
+    </div>
+    <script>
+        const generateBtn = document.getElementById('generate-btn');
+        const topicInput = document.getElementById('topic-input');
+        const messageContainer = document.getElementById('ai-message');
+        const resultContainer = document.getElementById('result-container');
+        const spinner = document.getElementById('loading-spinner');
+    
+        // Make sure your .NET API is running!
+        // This URL should match the one your API is listening on.
+        const apiUrl = 'http://localhost:5005/ai/generate/';
+    
+        generateBtn.addEventListener('click', async () => {
+            const topic = topicInput.value;
+            if (!topic) {
+                alert('Please enter a topic.');
+                return;
+            }
+    
+            // Show spinner and hide previous message
+            messageContainer.classList.add('hidden');
+            spinner.classList.remove('hidden');
+            resultContainer.appendChild(spinner);
+    
+            try {
+                const response = await fetch(apiUrl + encodeURIComponent(topic));
+                
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.statusText}`);
+                }
+    
+                const data = await response.json();
+                messageContainer.textContent = data.message;
+    
+            } catch (error) {
+                console.error('Failed to fetch:', error);
+                messageContainer.textContent = 'Failed to get a response. Is the API running?';
+            } finally {
+                // Hide spinner and show the message
+                spinner.classList.add('hidden');
+                resultContainer.removeChild(spinner);
+                messageContainer.classList.remove('hidden');
+            }
+        });
+    </script>
+    
+</body>
+</html>

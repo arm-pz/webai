@@ -31,3 +31,7 @@ C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\refint\AiApiPr
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.pdb
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.genruntimeconfig.cache
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\ref\AiApiProject.dll
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.sourcelink.json
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.Options.dll

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiApiProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad11b21715953f9d8fb6e50134559272bf488561")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiApiProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiApiProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
