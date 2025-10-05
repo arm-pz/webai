@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Itinerary Planner</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        p {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        #itinerary-result { width: 100%; margin-top: 30px; }
+        .day-card {
+            background: #fff;
+            border: 1px solid #eef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .day-card h2 { margin-top: 0; color: #3498db; }
+        .day-card h3 { margin-top: 0; font-size: 1.1em; color: #95a5a6; }
+        .activity-list { list-style: none; padding-left: 0; }
+        .activity-list li {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .activity-list li:last-child { border-bottom: none; }
+        .activity-list strong { color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Itinerary Planner</h1>
+        <p>Enter a destination and duration to generate a custom travel plan.</p>
+        <div class="form-group">
+            <input type="text" id="destination-input" placeholder="e.g., Paris">
+            <input type="number" id="days-input" placeholder="e.g., 3" min="1">
+            <button id="generate-btn">Generate Plan</button>
+        </div>
+        <div id="loading-spinner" class="hidden"></div>
+        <div id="itinerary-result">
+            <!-- Dynamically generated content will go here -->
+        </div>
+    </div>
+    <script>
+        const generateBtn = document.getElementById('generate-btn');
+        const destinationInput = document.getElementById('destination-input');
+        const daysInput = document.getElementById('days-input');
+        const resultContainer = document.getElementById('itinerary-result');
+        const spinner = document.getElementById('loading-spinner');
+    
+        const apiUrl = 'http://localhost:5005/ai/generate/itinerary/';
+    
+        generateBtn.addEventListener('click', async () => {
+            const destination = destinationInput.value;
+            const days = daysInput.value;
+    
+            if (!destination || !days || days <= 0) {
+                alert('Please enter a valid destination and number of days.');
+                return;
+            }
+    
+            resultContainer.innerHTML = '';
+            spinner.classList.remove('hidden');
+    
+            try {
+                const response = await fetch(`${apiUrl}${destination}/${days}`);
+                const itineraryData = await response.json();
+    
+                renderItinerary(itineraryData);
+    
+            } catch (error) {
+                console.error('Failed to fetch itinerary:', error);
+                resultContainer.innerHTML = '<p>Failed to generate itinerary. Please try again.</p>';
+            } finally {
+                spinner.classList.add('hidden');
+            }
+        });
+    
+        function renderItinerary(data) {
+            if (!data || !data.dailyPlans) {
+                 resultContainer.innerHTML = '<p>Could not parse the itinerary from the AI response.</p>';
+                 return;
+            }
+            
+            data.dailyPlans.forEach(day => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'day-card';
+    
+                let activitiesHtml = '<ul class="activity-list">';
+                day.activities.forEach(activity => {
+                    activitiesHtml += `<li><strong>${activity.time}:</strong> ${activity.description}</li>`;
+                });
+                activitiesHtml += '</ul>';
+    
+                dayCard.innerHTML = `
+                    <h2>Day ${day.day}</h2>
+                    <h3>${day.theme}</h3>
+                    ${activitiesHtml}
+                `;
+                
+                resultContainer.appendChild(dayCard);
+            });
+        }
+    </script>
+    
+</body>
+</html>

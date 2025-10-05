@@ -6,6 +6,9 @@ C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\AiApiProject.r
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\AiApiProject.dll
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\AiApiProject.pdb
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -17,6 +20,7 @@ C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.A
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.csproj.CoreCompileInputs.cache
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.sourcelink.json
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\staticwebassets\msbuild.AiApiProject.Microsoft.AspNetCore.StaticWebAssets.props
@@ -31,7 +35,3 @@ C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\refint\AiApiPr
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.pdb
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.genruntimeconfig.cache
 C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\ref\AiApiProject.dll
-C:\Users\abdul\Downloads\COde\webai\AiApiProject\obj\Debug\net8.0\AiApiProject.sourcelink.json
-C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\abdul\Downloads\COde\webai\AiApiProject\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
